@@ -20,7 +20,7 @@ SerialPort.open("/dev/tty.usbserial-A900abY5", 9600) do |sp|
   loop do
     sp.gets
     current_volume = ((sp.gets.to_f / 1023) * 100).to_i
-    
+    puts current_volume
     if current_volume != volume
       volume = current_volume
       set_volume(volume)
